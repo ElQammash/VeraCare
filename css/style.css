@@ -1,0 +1,733 @@
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.main-title {
+    font-size: 40px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.main-title span {
+    color: #368c53;
+}
+
+.main-title::after {
+    position: absolute;
+    content: '';
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 50px;
+    height: 2px;
+    background-color: #368c53;
+    margin: 0 auto;
+
+}
+
+@media (max-width: 768px) {
+
+    .main-title {
+        font-size: 25px;
+    }
+}
+
+:root {
+    --main-color: #368c53;
+    --main-transition: 0.5s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --section-background: #ffffff;
+    --section-background-alt: #f5f5dc;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--section-background-alt);
+    transition: background 0.5s ease;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    /* تأثير البلور */
+    -webkit-backdrop-filter: blur(10px);
+    /* للمتصفحات اللي بتحتاج prefix */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 0 20px;
+}
+
+header img {
+    height: 50px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li a {
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+header ul li a:hover,
+header ul li .active {
+    color: var(--main-color);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+
+/* زرار التوجل */
+.menu-toggle {
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span,
+.menu-toggle span::before,
+.menu-toggle span::after {
+    content: "";
+    position: absolute;
+    border-radius: 50px;
+    height: 3px;
+    width: 100%;
+    background: #000;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span::before {
+    top: -8px;
+}
+
+.menu-toggle span::after {
+    top: 8px;
+}
+
+/* لما يبقا Active */
+.menu-toggle.active span {
+    background: transparent;
+}
+
+.menu-toggle.active span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle.active span::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+    header ul {
+        position: fixed;
+        left: 0;
+        top: -20%;
+        width: 100%;
+        height: 100vh;
+        background: var(--section-background-alt);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        opacity: 0;
+        z-index: 101;
+    }
+
+    header ul li {
+        margin: 40px;
+    }
+
+    header ul.active {
+        top: 0;
+        opacity: 1;
+
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
+.landing {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("../images/5827800068806266769.jpg");
+    /* غير المسار حسب صورتك */
+    background-size: cover;
+    /* تخليها تملى الشاشة */
+    background-position: center;
+    /* في النص */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* دي اللي بتخليها ثابتة */
+
+    /* متتكررش */
+    height: 100vh;
+    /* يملى طول الشاشة */
+    width: 100%;
+    /* يملى العرض كله */
+    display: flex;
+    /* عشان تزبط المحتوى لو عايز */
+    align-items: center;
+    /* يخلي المحتوى في النص عمودي */
+    justify-content: center;
+    /* يخلي المحتوى في النص أفقي */
+    color: #fff;
+    /* لون الكلام */
+}
+
+.landing .text {
+    text-align: center;
+}
+
+.landing .text p {
+    color: var(--main-color);
+    font-weight: 700;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+}
+
+.landing .text h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .landing .text h1 {
+        font-size: 30px;
+    }
+}
+
+.landing .text a {
+    display: inline-block;
+    background-color: #368c53;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 8px;
+    transition: all 0.5s;
+    font-weight: bold;
+
+}
+
+.landing .text a:hover {
+    background-color: white;
+    color: var(--main-color);
+    transition: 0.5s;
+
+}
+
+.features {
+    padding: 60px 20px;
+}
+
+.features-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 جنب بعض */
+    gap: 20px;
+}
+
+.list-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.list-box:hover {
+    background: #eee;
+}
+
+.list-icon {
+    font-size: 28px;
+    color: var(--main-color);
+}
+
+.content h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+    .features-row {
+        grid-template-columns: 1fr;
+        /* يخليهم تحت بعض */
+    }
+
+    .list-box {
+        flex-direction: column;
+        /* الايقونة فوق الكلام */
+        text-align: center;
+    }
+
+    .list-icon {
+        font-size: 32px;
+    }
+}
+
+/* Start products */
+.products {
+
+    background-color: var(--section-background-alt);
+    padding-top: 20px;
+    padding-bottom: var(--main-padding-bottom);
+    position: relative;
+}
+
+.products .text {
+    align-items: center;
+    text-align: center;
+}
+
+
+.products .text p {
+    width: 80%;
+    font-size: 15px;
+    margin: 0 auto;
+    color: #555;
+    margin-top: 10px;
+    line-height: 1.8;
+}
+
+
+.products .container {
+    padding: 30px 10px 10px 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+@media (max-width: 600px) {
+    .products .container {
+        grid-template-columns: repeat(2, 1fr);
+        /* اتنين جنب بعض */
+    }
+}
+
+
+.products .product-card {
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+    background-color: var(--section-background-alt);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+}
+
+.products .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+
+.products .product-card img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.products .product-card .content {
+    padding: 5px;
+}
+
+.products .product-card .content h3 {
+    margin: 0;
+}
+
+.products .product-card .content p {
+    margin: 10px 0 0;
+    line-height: 1.5;
+    color: #777;
+}
+
+.products .product-card .content .price {
+    color: black;
+    font-size: 20px;
+}
+
+.products .product-card .content .price span {
+    margin-right: 15px;
+    color: #555;
+    text-decoration: line-through
+}
+
+.products .product-card .info {
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.products .product-card .info a {
+    display: inline-block;
+    background-color: #368c53;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 8px;
+    transition: all 0.5s;
+}
+
+.products .product-card .info a:hover {
+    background-color: white;
+    color: var(--main-color);
+    transition: 0.5s;
+}
+
+.products .product-card .info i {
+    color: var(--main-color);
+}
+
+.products .product-card:hover .info i {
+    animation: moving-arrow 0.6s linear infinite;
+}
+
+/* End products */
+.about {
+    padding: 60px 20px;
+}
+
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    /* عشان تتحول تحت بعض على الشاشات الصغيرة */
+}
+
+.about-img {
+    padding: 20px;
+    flex: 1;
+    /* تاخد نصف العرض تقريبًا */
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-text {
+    padding: 20px;
+    flex: 1;
+    /* تاخد نص العرض تقريبًا */
+}
+
+.about-text h4 {
+    line-height: 1.4;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.about-text h4 span {
+    color: #368c53;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 2;
+    color: #555;
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        /* الصورة فوق الكلام */
+        text-align: center;
+    }
+
+    .about-img,
+    .about-text {
+        flex: 100%;
+        padding: 5px;
+    }
+
+    .about-text h4 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+}
+
+.about .about-text a {
+
+    display: inline-block;
+    background-color: #368c53;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 8px;
+    transition: all 0.5s;
+    font-weight: bold;
+
+}
+
+.about .about-text a:hover {
+    background-color: white;
+    color: var(--main-color);
+    transition: 0.5s;
+
+}
+
+
+.hair-benefits {
+    background-color: var(--section-background-alt);
+    padding: 60px 20px;
+}
+
+
+.benefits-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* عشان يتحولوا تحت بعض على الموبايل */
+}
+
+.benefit-box {
+    flex: 1;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+
+.benefit-box h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.benefit-box p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+    .benefits-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .benefit-box {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+    }
+}
+
+.customer-reviews {
+    padding: 60px 20px;
+}
+
+
+.reviews-row {
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.review-box {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    /* خلي البوكس flex */
+    justify-content: center;
+    /* توسيط الصورة أفقياً */
+    align-items: center;
+    /* توسيط الصورة عمودياً */
+}
+
+.review-box img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+    .reviews-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+
+
+.customer-reviews .owl-carousel .owl-item {
+    display: flex !important;
+    justify-content: center !important;
+    /* توسيط الصور أفقياً */
+}
+
+.review-box {
+    display: inline-block;
+    text-align: center;
+    /* توسيط المحتوى جوا البوكس */
+}
+
+.review-box img {
+    display: block;
+    margin: 0 auto;
+    /* توسيط الصورة داخل البوكس */
+    max-width: 250px;
+    /* ممكن تتحكمي في الحجم */
+    border-radius: 10px;
+}
+
+footer {
+    background-color: var(--section-background-alt);
+    padding: 40px 20px;
+    font-family: "Cairo", sans-serif;
+}
+
+footer .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer h3 {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+footer .social-icons {
+    margin: 20px 0;
+}
+
+footer .social-icons a {
+    color: #333;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #368c53;
+}
+
+footer .copyright,
+footer .made-by {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+
+footer .container p {
+    font-weight: 300;
+    letter-spacing: 2px;
+}
