@@ -27,10 +27,10 @@
                 <span></span>
             </button>
             <ul>
-                <li><a class="" href="index.php">Home</a></li>
-                <li><a class="" href="about.php">About</a></li>
-                <li><a class="" href="products.php">Products</a></li>
-                <li><a class="" href="contact.php">Contact Us</a></li>
+                <li><a class="" href="index.html">Home</a></li>
+                <li><a class="" href="about.html">About</a></li>
+                <li><a class="" href="products.html">Products</a></li>
+                <li><a class="" href="contact.html">Contact Us</a></li>
             </ul>
         </div>
     </header>
