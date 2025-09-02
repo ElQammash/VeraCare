@@ -5,6 +5,23 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #228b22;
+    --section-background: #faf0e6;
+    --section-background-alt: #fafaf2;
+    --main-transition: 0.5s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
 .main-title {
     font-size: 40px;
     position: relative;
@@ -15,7 +32,7 @@
 }
 
 .main-title span {
-    color: #368c53;
+    color: var(--main-color);
 }
 
 .main-title::after {
@@ -26,7 +43,7 @@
     bottom: 0px;
     width: 50px;
     height: 2px;
-    background-color: #368c53;
+    background-color: var(--main-color);
     margin: 0 auto;
 
 }
@@ -38,22 +55,25 @@
     }
 }
 
-:root {
-    --main-color: #368c53;
-    --main-transition: 0.5s;
-    --main-padding-top: 100px;
-    --main-padding-bottom: 100px;
-    --section-background: #ffffff;
-    --section-background-alt: #f5f5dc;
+h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
 }
 
-html {
-    scroll-behavior: smooth;
+.page-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 7px;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
 }
+
 
 a {
     text-decoration: none;
@@ -105,9 +125,7 @@ header {
     transition: background 0.5s ease;
     z-index: 100;
     backdrop-filter: blur(10px);
-    /* تأثير البلور */
     -webkit-backdrop-filter: blur(10px);
-    /* للمتصفحات اللي بتحتاج prefix */
 }
 
 header .container {
@@ -151,7 +169,6 @@ header.scrolled {
 }
 
 
-/* زرار التوجل */
 .menu-toggle {
     display: none;
     position: relative;
@@ -189,7 +206,6 @@ header.scrolled {
     top: 8px;
 }
 
-/* لما يبقا Active */
 .menu-toggle.active span {
     background: transparent;
 }
@@ -204,21 +220,19 @@ header.scrolled {
     top: 0;
 }
 
-/* الموبايل */
 @media (max-width: 768px) {
     header ul {
         position: fixed;
         left: 0;
-        top: -20%;
+        top: -100vh;
         width: 100%;
         height: 100vh;
         background: var(--section-background-alt);
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: all 0.5s ease;
+        transition: all 0.8s ease;
         opacity: 0;
-        z-index: 101;
     }
 
     header ul li {
@@ -236,31 +250,18 @@ header.scrolled {
     }
 }
 
-
 .landing {
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("../images/5827800068806266769.jpg");
-    /* غير المسار حسب صورتك */
     background-size: cover;
-    /* تخليها تملى الشاشة */
     background-position: center;
-    /* في النص */
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* دي اللي بتخليها ثابتة */
-
-    /* متتكررش */
     height: 100vh;
-    /* يملى طول الشاشة */
     width: 100%;
-    /* يملى العرض كله */
     display: flex;
-    /* عشان تزبط المحتوى لو عايز */
     align-items: center;
-    /* يخلي المحتوى في النص عمودي */
     justify-content: center;
-    /* يخلي المحتوى في النص أفقي */
     color: #fff;
-    /* لون الكلام */
 }
 
 .landing .text {
@@ -274,22 +275,11 @@ header.scrolled {
     text-transform: uppercase;
 }
 
-.landing .text h1 {
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: #fff;
-}
 
-@media (max-width: 768px) {
-    .landing .text h1 {
-        font-size: 30px;
-    }
-}
 
 .landing .text a {
     display: inline-block;
-    background-color: #368c53;
+    background-color: var(--main-color);
     color: #fff;
     border-radius: 50px;
     padding: 10px 20px;
@@ -313,7 +303,6 @@ header.scrolled {
 .features-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 جنب بعض */
     gap: 20px;
 }
 
@@ -347,16 +336,13 @@ header.scrolled {
     color: #666;
 }
 
-/* للموبايل */
 @media (max-width: 768px) {
     .features-row {
         grid-template-columns: 1fr;
-        /* يخليهم تحت بعض */
     }
 
     .list-box {
         flex-direction: column;
-        /* الايقونة فوق الكلام */
         text-align: center;
     }
 
@@ -365,7 +351,6 @@ header.scrolled {
     }
 }
 
-/* Start products */
 .products {
 
     background-color: var(--section-background-alt);
@@ -400,7 +385,6 @@ header.scrolled {
 @media (max-width: 600px) {
     .products .container {
         grid-template-columns: repeat(2, 1fr);
-        /* اتنين جنب بعض */
     }
 }
 
@@ -458,7 +442,7 @@ header.scrolled {
 
 .products .product-card .info a {
     display: inline-block;
-    background-color: #368c53;
+    background-color: var(--main-color);
     color: #fff;
     border-radius: 50px;
     padding: 10px 20px;
@@ -480,7 +464,6 @@ header.scrolled {
     animation: moving-arrow 0.6s linear infinite;
 }
 
-/* End products */
 .about {
     padding: 60px 20px;
 }
@@ -491,13 +474,11 @@ header.scrolled {
     align-items: center;
     gap: 30px;
     flex-wrap: wrap;
-    /* عشان تتحول تحت بعض على الشاشات الصغيرة */
 }
 
 .about-img {
     padding: 20px;
     flex: 1;
-    /* تاخد نصف العرض تقريبًا */
 }
 
 .about-img img {
@@ -508,7 +489,6 @@ header.scrolled {
 .about-text {
     padding: 20px;
     flex: 1;
-    /* تاخد نص العرض تقريبًا */
 }
 
 .about-text h4 {
@@ -518,7 +498,7 @@ header.scrolled {
 }
 
 .about-text h4 span {
-    color: #368c53;
+    color: var(--main-color);
 }
 
 .about-text p {
@@ -527,11 +507,9 @@ header.scrolled {
     color: #555;
 }
 
-/* الموبايل */
 @media (max-width: 768px) {
     .about-content {
         flex-direction: column;
-        /* الصورة فوق الكلام */
         text-align: center;
     }
 
@@ -553,7 +531,7 @@ header.scrolled {
 .about .about-text a {
 
     display: inline-block;
-    background-color: #368c53;
+    background-color: var(--main-color);
     color: #fff;
     border-radius: 50px;
     padding: 10px 20px;
@@ -582,7 +560,6 @@ header.scrolled {
     justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
-    /* عشان يتحولوا تحت بعض على الموبايل */
 }
 
 .benefit-box {
@@ -638,11 +615,8 @@ header.scrolled {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     display: flex;
-    /* خلي البوكس flex */
     justify-content: center;
-    /* توسيط الصورة أفقياً */
     align-items: center;
-    /* توسيط الصورة عمودياً */
 }
 
 .review-box img {
@@ -666,21 +640,17 @@ header.scrolled {
 .customer-reviews .owl-carousel .owl-item {
     display: flex !important;
     justify-content: center !important;
-    /* توسيط الصور أفقياً */
 }
 
 .review-box {
     display: inline-block;
     text-align: center;
-    /* توسيط المحتوى جوا البوكس */
 }
 
 .review-box img {
     display: block;
     margin: 0 auto;
-    /* توسيط الصورة داخل البوكس */
     max-width: 250px;
-    /* ممكن تتحكمي في الحجم */
     border-radius: 10px;
 }
 
@@ -717,7 +687,7 @@ footer .social-icons a {
 }
 
 footer .social-icons a:hover {
-    color: #368c53;
+    color: var(--main-color);
 }
 
 footer .copyright,
@@ -730,4 +700,320 @@ footer .made-by {
 footer .container p {
     font-weight: 300;
     letter-spacing: 2px;
+}
+
+.about-landing {
+    height: 400px;
+    background-color: var(--main-color);
+}
+
+.about-landing .container .text {
+    color: #fff;
+    letter-spacing: 2px;
+    padding-top: 150px;
+    text-align: center;
+}
+
+/* About Section */
+.about-sec {
+    padding: 60px 20px;
+    background: var(--section-background-alt);
+}
+
+
+
+.about-sec .text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-sec p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.all-products {
+    height: 400px;
+    background-color: var(--main-color);
+}
+
+.all-products .container .text {
+    color: #fff;
+    letter-spacing: 2px;
+    padding-top: 150px;
+    text-align: center;
+}
+
+.contact {
+    height: 400px;
+    background-color: var(--main-color);
+}
+
+.contact .container .text {
+    color: #fff;
+    letter-spacing: 2px;
+    padding-top: 150px;
+    text-align: center;
+}
+
+/* ===== Form Section ===== */
+.form {
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.form-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.form-left,
+.form-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Left Form */
+.form-left .main-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.btn-submit {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--main-color);
+}
+
+/* Right Contact Info */
+.form-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contact-info {
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.contact-info .info-box {
+    line-height: 2;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-info h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--main-color);
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+
+    .form-left,
+    .form-right {
+        min-width: 100%;
+    }
+
+    .form-right {
+        margin-top: 30px;
+    }
+
+}
+.product {
+    padding: 60px 20px;
+}
+.product .main-title {
+    padding-top: 30px;
+}
+
+.product .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* صور المنتج */
+.prod-images {
+    flex: 0 0 35%;
+    max-width: 35%;
+}
+
+.main-image {
+    width: 100%;
+    height: 400px; /* ارتفاع ثابت */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.main-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.thumbnails img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.thumbnails img:hover {
+    transform: scale(1.1);
+}
+
+/* معلومات المنتج */
+.prod-info {
+    flex: 1;
+}
+
+.prod-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.prod-decription {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.new-price {
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 22px;
+    display: inline-block;
+}
+
+/* input number */
+.prod-info input[type="number"] {
+    display: block;
+    width: 80px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* الأزرار */
+.prod-info a {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 8px 5px 0 0;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.prod-info a:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .product .container {
+        flex-direction: column;
+    }
+
+    .prod-images {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .prod-info {
+        flex: 100%;
+        max-width: 100%;
+    }
 }

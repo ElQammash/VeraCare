@@ -27,9 +27,10 @@ var owl = $('.owl-carousel');
 owl.owlCarousel({
     margin: 10,
     loop: true,
-    autoplay: true,          // تشغيل التشغيل التلقائي
-    autoplayTimeout: 1000,   // وقت العرض لكل صورة بالمللي ثانية (3 ثواني)
-    smartSpeed: 1000,        // سرعة الانتقال بين الصور بالمللي ثانية
+    autoplay: true,
+    autoplayTimeout: 1000,
+        autoplayHoverPause: true, // توقف عند الهوف
+    smartSpeed: 1000,
     responsive: {
         0: {
             items: 1
@@ -42,4 +43,5 @@ owl.owlCarousel({
         }
     }
 });
+
 new WOW().init();
